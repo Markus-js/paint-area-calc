@@ -1,24 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
+  const [højde, setHøjde] = useState(null);
+  const [længde, setLængde] = useState(null);
+  const [result, setResult] = useState(null);
+
+  useEffect(() => {
+    handleCalc();
+  }, [højde, længde]);
+
+  const handleCalc = () => {
+    setResult(højde * længde);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <container className="app">
+      <div>
+        {højde}
+        {længde}
+
+        <div className="result-container">
+          <p>result:</p>
+          <h2>{result}㎡</h2>
+        </div>
+      </div>
+      <div className="App">
+        <form>
+          <label for="length">Længde</label>
+          <input
+            id="length"
+            type="text"
+            pattern="[0-9]*"
+            onChange={e => setLængde(e.target.value)}
+          />
+          <label for="height">Højde</label>
+          <input
+            id="height"
+            type="text"
+            pattern="!/[0-9]"
+            onChange={e => setHøjde(e.target.value)}
+          />
+        </form>
+      </div>
+    </container>
   );
 }
 
