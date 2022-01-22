@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Select from "react-select";
 import "./App.css";
 
 function App() {
@@ -6,10 +7,25 @@ function App() {
   const [længde, setLængde] = useState(null);
   const [result, setResult] = useState(null);
   const [items, setItems] = useState(null);
-  const [selected, setSelected] = useState(null);
 
   const SPACEID = process.env.REACT_APP_SPACEID;
   const ACCESSTOKEN = process.env.REACT_APP_ACCESSTOKEN;
+
+  let options;
+  if (items) {
+    options = items.map(item => {
+      return {
+        value: ` ${item.fields.produktNavn}`,
+        label: ` ${item.fields.produktNavn}`,
+      };
+    });
+  }
+  // const options = [
+  //   test[0],
+
+  //   // { value: "chocolate", label: "Chocolate" },
+  //   // { value: "strawberry", label: "Strawberry" },
+  // ];
 
   useEffect(() => {
     handleCalc();
@@ -47,7 +63,9 @@ function App() {
       <div>
         {højde}
         {længde}
-        <select value={selected} onChange={setSelected}>
+        {items !== null && <Select options={options} />}
+        {/* <select value={selected} onChange={setSelected}>
+      
           {items &&
             items.map(item => {
               return (
@@ -56,7 +74,7 @@ function App() {
                 </option>
               );
             })}
-        </select>
+        </select> */}
         <div className="result-container">
           <p>result:</p>
           <h2>{result}㎡</h2>
