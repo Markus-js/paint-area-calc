@@ -14,6 +14,17 @@ function App() {
     setResult(højde * længde);
   };
 
+  function onChangeHøjde(e) {
+    if (!e.target.validity.patternMismatch) {
+      setHøjde(e.target.value);
+    }
+  }
+  function onChangeLængde(e) {
+    if (!e.target.validity.patternMismatch) {
+      setLængde(e.target.value);
+    }
+  }
+
   return (
     <container className="app">
       <div>
@@ -26,22 +37,16 @@ function App() {
         </div>
       </div>
       <div className="App">
-        <form>
-          <label for="length">Længde</label>
-          <input
-            id="length"
-            type="text"
-            pattern="[0-9]*"
-            onChange={e => setLængde(e.target.value)}
-          />
-          <label for="height">Højde</label>
-          <input
-            id="height"
-            type="text"
-            pattern="!/[0-9]"
-            onChange={e => setHøjde(e.target.value)}
-          />
-        </form>
+        <input
+          value={højde || ""}
+          pattern="^[0-9]*$"
+          onChange={onChangeHøjde}
+        />
+        <input
+          value={længde || ""}
+          pattern="^[0-9]*$"
+          onChange={onChangeLængde}
+        />
       </div>
     </container>
   );
