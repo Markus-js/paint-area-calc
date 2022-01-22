@@ -7,9 +7,14 @@ function App() {
   const [længde, setLængde] = useState(null);
   const [result, setResult] = useState(null);
   const [items, setItems] = useState(null);
+  const [selectedValue, setSelectedValue] = useState(null);
 
   const SPACEID = process.env.REACT_APP_SPACEID;
   const ACCESSTOKEN = process.env.REACT_APP_ACCESSTOKEN;
+
+  const handleChange = e => {
+    setSelectedValue(e.value);
+  };
 
   let options;
   if (items) {
@@ -61,9 +66,16 @@ function App() {
   return (
     <container className="app">
       <div>
+        {selectedValue}
         {højde}
         {længde}
-        {items !== null && <Select options={options} />}
+        {items !== null && (
+          <Select
+            options={options}
+            value={options.find(obj => obj.value === selectedValue)}
+            onChange={handleChange}
+          />
+        )}
         {/* <select value={selected} onChange={setSelected}>
       
           {items &&
