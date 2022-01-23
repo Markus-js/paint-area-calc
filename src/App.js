@@ -4,6 +4,7 @@ import Select from "react-select";
 import "./App.css";
 
 import InputCalc from "./components/InputCalc";
+import Result from "./components/Result";
 
 function App() {
   const { items, result } = useContext(AppContext);
@@ -31,6 +32,7 @@ function App() {
   return (
     <main className="app">
       <InputCalc />
+      <Result />
 
       <div>
         {selectedValue}
@@ -42,11 +44,6 @@ function App() {
             onChange={handleChange}
           />
         )}
-
-        <div className="result-container">
-          <p>result:</p>
-          <h2>{result}㎡</h2>
-        </div>
       </div>
     </main>
   );
