@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AppContext } from "./context/states";
 import Select from "react-select";
 import "./App.css";
 
 function App() {
+  const { loginData, setLoginData } = useContext(AppContext);
   const [højde, setHøjde] = useState(null);
   const [længde, setLængde] = useState(null);
   const [result, setResult] = useState(null);
