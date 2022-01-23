@@ -8,6 +8,7 @@ const SelectProduct = () => {
 
   let options;
   if (items) {
+    // for each product, create a object child for Select element
     options = items.map(item => {
       return {
         value: ` ${item.fields.produktNavn}`,
@@ -30,7 +31,9 @@ const SelectProduct = () => {
 
       {items !== null && (
         <Select
+          // Selection children from items
           options={options}
+          //   Get selected value
           value={options.find(obj => obj.value === selectedValue)}
           onChange={handleChange}
         />
