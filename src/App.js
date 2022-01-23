@@ -14,6 +14,10 @@ function App() {
 
   const handleChange = e => {
     setSelectedValue(e.value);
+    // find item === selectedValue
+    // item.m2
+    // bregning  l * h % 6.5     5-8 m2/liter --
+    // link
   };
 
   let options;
@@ -64,7 +68,7 @@ function App() {
   }
 
   return (
-    <container className="app">
+    <main className="app">
       <div>
         {selectedValue}
         {højde}
@@ -104,7 +108,7 @@ function App() {
           onChange={onChangeLængde}
         />
       </div>
-    </container>
+    </main>
   );
 }
 
