@@ -1,19 +1,21 @@
-import React from "react";
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { AppContext } from "../context/states";
 
 const InputCalc = () => {
   const { højde, setHøjde, længde, setLængde, setResult } =
     useContext(AppContext);
 
+  // Rerender ui when onChange => inputs
   useEffect(() => {
     handleCalc();
   }, [højde, længde]);
 
+  // SET Calc RESULT IN CONTEXT
   const handleCalc = () => {
     setResult(højde * længde);
   };
 
+  //   Validate input | Only number types
   function onChangeHøjde(e) {
     if (!e.target.validity.patternMismatch) {
       setHøjde(e.target.value);
