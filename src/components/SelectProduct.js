@@ -1,5 +1,4 @@
-import { useState, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect } from "react";
 import { AppContext } from "../context/states";
 import Select from "react-select";
 
@@ -33,6 +32,7 @@ const SelectProduct = () => {
   // Rerender ui then selecting product
   useEffect(() => {
     handleCalcArea();
+
     console.log(selectedProduct);
   }, [handleChange]);
 
@@ -55,14 +55,17 @@ const SelectProduct = () => {
         // ((25 / 6.5) * 2).toFixed(2)go
       );
     }
-
-    // link
   };
+
   return (
     <div className="select-container">
-      {selectedValue}
-      <p>Calculated area:</p>
-      {calculatedArea && calculatedArea}
+      {/* Product Image */}
+      {selectedProduct && (
+        <div>
+          <img src={selectedProduct.fields.img_url} alt="ff" />
+        </div>
+      )}
+      {/* Select product */}
       {items !== null && (
         <Select
           // Selection children from items
@@ -73,18 +76,15 @@ const SelectProduct = () => {
         />
       )}
       <div>
-        <p>link</p>
+        {/* Link to selected product */}
         {selectedProduct && (
-          <>
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href={selectedProduct.fields.link}
-            >
-              Link to product
-            </a>
-            <p>anbefaldet lag:</p> <p>{selectedProduct.fields.lag}</p>
-          </>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={selectedProduct.fields.link}
+          >
+            Link to product
+          </a>
         )}
       </div>
     </div>
