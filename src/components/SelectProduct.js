@@ -4,10 +4,16 @@ import { AppContext } from "../context/states";
 import Select from "react-select";
 
 const SelectProduct = () => {
-  const { items, result } = useContext(AppContext);
-  const [selectedValue, setSelectedValue] = useState(null);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [calculatedArea, setCalculatedArea] = useState(null);
+  const {
+    items,
+    result,
+    selectedValue,
+    setSelectedValue,
+    selectedProduct,
+    setSelectedProduct,
+    calculatedArea,
+    setCalculatedArea,
+  } = useContext(AppContext);
 
   let options;
   if (items) {
@@ -39,15 +45,21 @@ const SelectProduct = () => {
       );
     }
 
-    // Calc  l * h / sum of dækkeevne =>  5-8 === sum 6.5
+    // Calc ( l * h / sum of dækkeevne * lag )
     if (selectedProduct) {
-      setCalculatedArea((result / selectedProduct.fields.dkkeevne).toFixed(2));
+      setCalculatedArea(
+        (
+          (result / selectedProduct.fields.dkkeevne) *
+          selectedProduct.fields.lag
+        ).toFixed(2)
+        // ((25 / 6.5) * 2).toFixed(2)go
+      );
     }
 
     // link
   };
   return (
-    <div>
+    <div className="select-container">
       {selectedValue}
       <p>Calculated area:</p>
       {calculatedArea && calculatedArea}
@@ -63,13 +75,16 @@ const SelectProduct = () => {
       <div>
         <p>link</p>
         {selectedProduct && (
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href={selectedProduct.fields.link}
-          >
-            Link to product
-          </a>
+          <>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={selectedProduct.fields.link}
+            >
+              Link to product
+            </a>
+            <p>anbefaldet lag:</p> <p>{selectedProduct.fields.lag}</p>
+          </>
         )}
       </div>
     </div>

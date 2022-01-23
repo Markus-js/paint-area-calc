@@ -28,11 +28,17 @@ const InputCalc = () => {
   }
 
   return (
-    <div className="App">
-      <input value={højde || ""} pattern="^[0-9]*$" onChange={onChangeHøjde} />
+    <div className="input-container">
+      <input
+        value={højde || ""}
+        pattern="^[0-9]*$"
+        maxLength="3"
+        onChange={onChangeHøjde}
+      />
       <input
         value={længde || ""}
         pattern="^[0-9]*$"
+        maxLength="3"
         onChange={onChangeLængde}
       />
     </div>

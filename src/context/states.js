@@ -8,6 +8,11 @@ const AppContextProvider = ({ children }) => {
   const [længde, setLængde] = useState(null);
   const [result, setResult] = useState(null);
 
+  const [selectedValue, setSelectedValue] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const [calculatedArea, setCalculatedArea] = useState(null);
+
   // environment data
   const SPACEID = process.env.REACT_APP_SPACEID;
   const ACCESSTOKEN = process.env.REACT_APP_ACCESSTOKEN;
@@ -27,6 +32,12 @@ const AppContextProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        calculatedArea,
+        setCalculatedArea,
+        selectedProduct,
+        setSelectedProduct,
+        selectedValue,
+        setSelectedValue,
         items,
         setItems,
         højde,
