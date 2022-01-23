@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { AppContext } from "../context/states";
 import Select from "react-select";
 
@@ -23,14 +24,15 @@ const SelectProduct = () => {
     setSelectedValue(e.value);
   };
 
+  // Rerender ui then selecting product
   useEffect(() => {
     handleCalcArea();
-    // console.log("selectedProduct");
     console.log(selectedProduct);
   }, [handleChange]);
 
+  // Calculate selectedValue/ProductName
   const handleCalcArea = () => {
-    // find item === selectedValue
+    // SelectedProduct === (find item <=Match=> selectedValue)
     if (selectedValue) {
       setSelectedProduct(
         items.find(obj => obj.fields.produktNavn === selectedValue)
@@ -58,6 +60,18 @@ const SelectProduct = () => {
           onChange={handleChange}
         />
       )}
+      <div>
+        <p>link</p>
+        {selectedProduct && (
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={selectedProduct.fields.link}
+          >
+            Link to product
+          </a>
+        )}
+      </div>
     </div>
   );
 };
