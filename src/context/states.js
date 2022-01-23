@@ -19,6 +19,7 @@ const AppContextProvider = ({ children }) => {
       );
       const resJson = await response.json();
       setItems(resJson.items);
+      console.log(resJson.items);
     };
     fetchApi();
   }, []);
