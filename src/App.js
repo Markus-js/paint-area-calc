@@ -4,15 +4,12 @@ import Select from "react-select";
 import "./App.css";
 
 function App() {
-  const { loginData, setLoginData } = useContext(AppContext);
+  const { items, setItems } = useContext(AppContext);
   const [højde, setHøjde] = useState(null);
   const [længde, setLængde] = useState(null);
   const [result, setResult] = useState(null);
-  const [items, setItems] = useState(null);
-  const [selectedValue, setSelectedValue] = useState(null);
 
-  const SPACEID = process.env.REACT_APP_SPACEID;
-  const ACCESSTOKEN = process.env.REACT_APP_ACCESSTOKEN;
+  const [selectedValue, setSelectedValue] = useState(null);
 
   const handleChange = e => {
     setSelectedValue(e.value);
@@ -42,17 +39,6 @@ function App() {
     handleCalc();
     console.log(items);
   }, [højde, længde]);
-
-  useEffect(() => {
-    const fetchApi = async () => {
-      const response = await fetch(
-        `https://cdn.contentful.com/spaces/${SPACEID}/environments/master/entries?access_token=${ACCESSTOKEN}`
-      );
-      const resJson = await response.json();
-      setItems(resJson.items);
-    };
-    fetchApi();
-  }, []);
 
   const handleCalc = () => {
     setResult(højde * længde);
