@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 
 import InputCalc from "./components/InputCalc";
 import Result from "./components/Result";

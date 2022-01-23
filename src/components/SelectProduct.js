@@ -58,34 +58,44 @@ const SelectProduct = () => {
   };
 
   return (
-    <div className="select-container">
-      {/* Product Image */}
-      {selectedProduct && (
-        <div>
-          <img src={selectedProduct.fields.img_url} alt="ff" />
+    <div className="select-container container">
+      <header className="process">
+        <div className="circle">
+          <span>1</span>
         </div>
-      )}
-      {/* Select product */}
-      {items !== null && (
-        <Select
-          // Selection children from items
-          options={options}
-          //   Get selected value
-          value={options.find(obj => obj.value === selectedValue)}
-          onChange={handleChange}
-        />
-      )}
-      <div>
-        {/* Link to selected product */}
+        <h2>Vælg produkt</h2>
+      </header>
+      <div className="col">
+        {/* Product Image */}
         {selectedProduct && (
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href={selectedProduct.fields.link}
-          >
-            Link to product
-          </a>
+          <div className="img-wrapper">
+            <img src={selectedProduct.fields.img_url} alt="product" />
+          </div>
         )}
+
+        <div>
+          {/* Select product */}
+          {items !== null && (
+            <Select
+              // Selection children from items
+              options={options}
+              //   Get selected value
+              value={options.find(obj => obj.value === selectedValue)}
+              onChange={handleChange}
+            />
+          )}
+
+          {/* Link to selected product */}
+          {selectedProduct && (
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={selectedProduct.fields.link}
+            >
+              <button> Link to product</button>
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );

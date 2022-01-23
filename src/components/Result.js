@@ -5,7 +5,13 @@ const Result = () => {
   const { result, selectedProduct, calculatedArea } = useContext(AppContext);
 
   return (
-    <div className="result-container">
+    <div className="result-container container">
+      <header className="process">
+        <div className="circle">
+          <span>3</span>
+        </div>
+        <h2>Resultat</h2>
+      </header>
       {selectedProduct && <p>{selectedProduct.fields.lag}</p>}
       area:
       {calculatedArea && calculatedArea}

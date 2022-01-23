@@ -28,7 +28,13 @@ const InputCalc = () => {
   }
 
   return (
-    <div className="input-container">
+    <div className="input-container container">
+      <header className="process">
+        <div className="circle">
+          <span>2</span>
+        </div>
+        <h2>Hvor meget maling skal du bruge</h2>
+      </header>
       <input
         value={højde || ""}
         pattern="^[0-9]*$"
