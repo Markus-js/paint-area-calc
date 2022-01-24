@@ -20,24 +20,33 @@ html {
 }
 
 .input-container {
-  display: flex;
-  gap: 4rem;
-  .input-box {
-    position: relative;
-    width: 6rem;
+  .flex-container {
     display: flex;
-    span {
-      position: absolute;
-      left: 105%;
-      bottom: 20%;
-    }
-    .input-wrapper {
-      display: flex;
-      width: 100%;
-      flex-direction: column;
+    gap: 4rem;
+    .input-box {
       position: relative;
-      input {
-        padding: 10px 15px;
+      width: 6rem;
+      display: flex;
+      span {
+        position: absolute;
+        left: 105%;
+        bottom: 20%;
+        color: #666;
+      }
+      .input-wrapper {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        position: relative;
+        label {
+          color: #666;
+          padding-bottom: 0.3rem;
+        }
+        input {
+          padding: 10px 15px;
+          border: solid 1px #e7e7e7;
+          border-radius: 5px;
+        }
       }
     }
   }
