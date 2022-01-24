@@ -1,9 +1,31 @@
 html {
+  color: #444;
   --color-background: #f3f7fb;
   --color-container: #fefffe;
+  --color-text-fade: #666;
+  --color-main: #0d649b;
+  --color-btn-hover: #005a87;
   /* color: var(--color-text); */
   background-color: var(--color-background);
 }
+
+h3 {
+  margin-top: 0;
+}
+
+.product-title {
+  color: var(--color-main);
+}
+.text-info {
+  color: var(--color-text-fade);
+  margin-bottom: 0;
+}
+
+.icon {
+  cursor: pointer;
+  fill: var(--color-main);
+}
+
 .container {
   position: relative;
   padding: 2rem;
@@ -12,11 +34,6 @@ html {
   border: solid 1px #e7e7e7;
   border-radius: 5px;
   background-color: var(--color-container);
-}
-.result-container {
-}
-
-.select-container {
 }
 
 .input-container {
@@ -31,7 +48,7 @@ html {
         position: absolute;
         left: 105%;
         bottom: 20%;
-        color: #666;
+        color: var(--color-text-fade);
       }
       .input-wrapper {
         display: flex;
@@ -39,7 +56,7 @@ html {
         flex-direction: column;
         position: relative;
         label {
-          color: #666;
+          color: var(--color-text-fade);
           padding-bottom: 0.3rem;
         }
         input {
@@ -75,8 +92,8 @@ html {
 
   background-color: #111;
   border-radius: 100%;
-  width: 3rem;
-  height: 3rem;
+  width: 2.4rem;
+  height: 2.4rem;
   span {
     color: #fff;
     font-size: 1.3rem;
@@ -106,13 +123,13 @@ html {
   outline: none;
   border: none;
   padding: 15px 25px;
-  background-color: #0d649b;
+  background-color: var(--color-main);
   border-radius: 3px;
   font-weight: 500;
   font-size: 16px;
   color: #fff;
   &:hover {
-    background-color: #005a87;
+    background-color: var(--color-btn-hover);
   }
 }
 
