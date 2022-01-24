@@ -35,18 +35,32 @@ const InputCalc = () => {
         </div>
         <h2>Hvor meget maling skal du bruge</h2>
       </header>
-      <input
-        value={højde || ""}
-        pattern="^[0-9]*$"
-        maxLength="3"
-        onChange={onChangeHøjde}
-      />
-      <input
-        value={længde || ""}
-        pattern="^[0-9]*$"
-        maxLength="3"
-        onChange={onChangeLængde}
-      />
+      <div className="input-box">
+        <div className="input-wrapper">
+          <label for="længde">Længde</label>
+          <input
+            id="længde"
+            value={længde || ""}
+            pattern="^[0-9]*$"
+            maxLength="3"
+            onChange={onChangeLængde}
+          />
+        </div>
+        <span>m</span>
+      </div>
+      <div className="input-box">
+        <div className="input-wrapper">
+          <label for="højde">Højde</label>
+          <input
+            id="højde"
+            value={højde || ""}
+            pattern="^[0-9]*$"
+            maxLength="3"
+            onChange={onChangeHøjde}
+          />
+        </div>
+        <span>m</span>
+      </div>
     </div>
   );
 };

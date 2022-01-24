@@ -82,6 +82,7 @@ const SelectProduct = () => {
               //   Get selected value
               value={options.find(obj => obj.value === selectedValue)}
               onChange={handleChange}
+              className="select-product"
             />
           )}
 
@@ -92,7 +93,7 @@ const SelectProduct = () => {
               rel="noreferrer"
               href={selectedProduct.fields.link}
             >
-              <button> Link to product</button>
+              <button className="btn-link">Se produkt</button>
             </a>
           )}
         </div>
