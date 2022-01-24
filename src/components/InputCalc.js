@@ -38,7 +38,7 @@ const InputCalc = () => {
       <div className="flex-container">
         <div className="input-box">
           <div className="input-wrapper">
-            <label for="længde">Længde</label>
+            <label htmlFor="længde">Længde</label>
             <input
               id="længde"
               value={længde || ""}
@@ -51,7 +51,7 @@ const InputCalc = () => {
         </div>
         <div className="input-box">
           <div className="input-wrapper">
-            <label for="højde">Højde</label>
+            <label htmlFor="højde">Højde</label>
             <input
               id="højde"
               value={højde || ""}

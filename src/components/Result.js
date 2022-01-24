@@ -1,12 +1,8 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AppContext } from "../context/states";
 
 const Result = () => {
   const { result, selectedProduct, calculatedArea } = useContext(AppContext);
-
-  useEffect(() => {
-    console.log(result);
-  }, [selectedProduct]);
 
   return (
     <div className="result-container container">
@@ -19,11 +15,29 @@ const Result = () => {
       {selectedProduct && result !== 0 && (
         <>
           <p>Dine mål:</p>
-          {result && <h2>Total area: {result} ㎡</h2>}
+          {result && <h2>Total areal: {result} ㎡</h2>}
           <p>Mængde information:</p>
           <h2>
             Baseret på {selectedProduct.fields.lag} lag: {calculatedArea} liter
           </h2>
+          {selectedProduct.fields.produktNavnGrunder &&
+          selectedProduct.fields.lagGrunder ? (
+            // Med Anbefalder Grunder
+            <p>
+              For det bedste resultat anbefaler vi at bruge{" "}
+              <b>{selectedProduct.fields.lagGrunder} lag</b> af{" "}
+              <b>{selectedProduct.fields.produktNavnGrunder}</b> før{" "}
+              <b>{selectedProduct.fields.lag} lag</b> af{" "}
+              <b>{selectedProduct.fields.produktNavn}</b>
+            </p>
+          ) : (
+            // Uden Grunder
+            <p>
+              For det bedste resultat anbefaler vi at bruge{" "}
+              <b>{selectedProduct.fields.lag} lag</b> af{" "}
+              <b>{selectedProduct.fields.produktNavn}</b>
+            </p>
+          )}
         </>
       )}
     </div>
