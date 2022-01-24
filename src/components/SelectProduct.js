@@ -10,7 +10,6 @@ const SelectProduct = () => {
     setSelectedValue,
     selectedProduct,
     setSelectedProduct,
-    calculatedArea,
     setCalculatedArea,
   } = useContext(AppContext);
 

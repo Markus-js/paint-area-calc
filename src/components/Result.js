@@ -1,8 +1,12 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AppContext } from "../context/states";
 
 const Result = () => {
   const { result, selectedProduct, calculatedArea } = useContext(AppContext);
+
+  useEffect(() => {
+    console.log(result);
+  }, [selectedProduct]);
 
   return (
     <div className="result-container container">
@@ -12,11 +16,16 @@ const Result = () => {
         </div>
         <h2>Resultat</h2>
       </header>
-      {selectedProduct && <p>{selectedProduct.fields.lag}</p>}
-      area:
-      {calculatedArea && calculatedArea}
-      <p>result:</p>
-      <h2>{result}㎡</h2>
+      {selectedProduct && result !== 0 && (
+        <>
+          <p>Dine mål:</p>
+          {result && <h2>Total area: {result} ㎡</h2>}
+          <p>Mængde information:</p>
+          <h2>
+            Baseret på {selectedProduct.fields.lag} lag: {calculatedArea} liter
+          </h2>
+        </>
+      )}
     </div>
   );
 };
