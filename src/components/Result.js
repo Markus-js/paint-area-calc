@@ -33,18 +33,23 @@ const Result = () => {
       </header>
       {selectedProduct && result !== 0 && (
         <>
-          <h2 className="product-title">
-            {selectedProduct.fields.produktNavn}{" "}
-            {selectedProduct.fields.link && (
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href={selectedProduct.fields.link}
-              >
+          {selectedProduct.fields.link ? (
+            <a
+              className="link"
+              target="_blank"
+              rel="noreferrer"
+              href={selectedProduct.fields.link}
+            >
+              <h2 className="product-title">
+                {selectedProduct.fields.produktNavn}
                 <BiLinkExternal className="icon" />
-              </a>
-            )}
-          </h2>
+              </h2>
+            </a>
+          ) : (
+            <h2 className="product-title">
+              {selectedProduct.fields.produktNavn}
+            </h2>
+          )}
           <p className="text-info">Dine mål:</p>
           {result && <h3>Total areal: {result} ㎡.</h3>}
           <p className="text-info">Mængde information:</p>
@@ -66,18 +71,23 @@ const Result = () => {
 
               {grunderArea !== null && (
                 <>
-                  <h2 className="product-title">
-                    {selectedProduct.fields.produktNavnGrunder}
-                    {selectedProduct.fields.linkGrunder && (
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        href={selectedProduct.fields.linkGrunder}
-                      >
+                  {selectedProduct.fields.linkGrunder ? (
+                    <a
+                      className="link"
+                      target="_blank"
+                      rel="noreferrer"
+                      href={selectedProduct.fields.linkGrunder}
+                    >
+                      <h2 className="product-title">
+                        {selectedProduct.fields.produktNavnGrunder}
                         <BiLinkExternal className="icon" />
-                      </a>
-                    )}
-                  </h2>
+                      </h2>
+                    </a>
+                  ) : (
+                    <h2 className="product-title">
+                      {selectedProduct.fields.produktNavnGrunder}
+                    </h2>
+                  )}
 
                   <p className="text-info">Dine mål:</p>
                   {result && <h3>Total areal: {result} ㎡.</h3>}

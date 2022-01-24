@@ -1,5 +1,5 @@
 html {
-  color: #444;
+  color: #666;
   --color-background: #f3f7fb;
   --color-container: #fefffe;
   --color-text-fade: #666;
@@ -7,6 +7,7 @@ html {
   --color-btn-hover: #005a87;
   /* color: var(--color-text); */
   background-color: var(--color-background);
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 h3 {
@@ -15,25 +16,40 @@ h3 {
 
 .product-title {
   color: var(--color-main);
+  position: relative;
+  font-size: 1.3rem;
 }
 .text-info {
   color: var(--color-text-fade);
   margin-bottom: 0;
 }
-
-.icon {
+.link {
   cursor: pointer;
+  text-decoration: none;
+}
+.icon {
   fill: var(--color-main);
+  position: absolute;
+  top: 50%;
+  padding-left: 0.4rem;
+  transform: translateY(-50%);
 }
 
 .container {
   position: relative;
-  padding: 2rem;
-  padding-top: 7rem;
-  margin: 2rem;
+  padding: 1.5rem;
+  padding-top: 8rem;
+  // desk
+  // margin: 2rem;
+  // mobile
+  margin: 1rem 0;
   border: solid 1px #e7e7e7;
   border-radius: 5px;
   background-color: var(--color-container);
+}
+
+.select-container {
+  margin-top: 0;
 }
 
 .input-container {
@@ -61,8 +77,13 @@ h3 {
         }
         input {
           padding: 10px 15px;
-          border: solid 1px #e7e7e7;
-          border-radius: 5px;
+          background-color: hsl(0, 0%, 100%);
+          border-color: hsl(0, 0%, 80%);
+          border-radius: 4px;
+          border-style: solid;
+          border-width: 1px;
+          cursor: default;
+          outline-color: #2684ff;
         }
       }
     }
@@ -71,32 +92,36 @@ h3 {
 
 .process {
   display: flex;
-  flex-direction: row;
+  // mobile
+  flex-direction: column;
   position: absolute;
   top: 0;
   left: 0;
-  padding: 2rem;
+  padding: 1.5rem;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  width: 100%;
   h2 {
-    padding: 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding-top: 1rem;
     margin: 0;
-    margin-left: 1rem;
-    align-self: center;
+    // desk
+    // margin-left: 1rem;
+    // align-self: center;
   }
 }
 
 .circle {
   position: relative;
 
-  background-color: #111;
+  background-color: #013650;
   border-radius: 100%;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2rem;
+  height: 2rem;
   span {
     color: #fff;
-    font-size: 1.3rem;
+    font-size: 1rem;
+    font-weight: 600;
     position: absolute;
     top: 50%;
     left: 50%;
