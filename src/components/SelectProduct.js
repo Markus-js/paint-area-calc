@@ -79,6 +79,7 @@ const SelectProduct = () => {
               // Selection children from items
               options={options}
               //   Get selected value
+              placeholder="Søg"
               value={options.find(obj => obj.value === selectedValue)}
               onChange={handleChange}
               className="select-product"
