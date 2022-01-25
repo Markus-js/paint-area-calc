@@ -136,7 +136,7 @@ h3 {
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
   .select-product {
@@ -158,17 +158,96 @@ h3 {
   }
 }
 
-// .col {
-//   display: grid;
-//   grid-template-columns: 3fr 2fr;
-//   gap: 20px;
-//   .img-wrapper {
-//     width: 300px;
-//     height: 300px;
-//     img {
-//       width: 100%;
-//       height: 100%;
-//       object-fit: cover;
-//     }
-//   }
-// }
+// tablets
+@media only screen and (min-width: 768px) {
+  p {
+    font-size: 1.4rem;
+  }
+  h3 {
+    font-size: 1.6rem;
+  }
+  .product-title {
+    font-size: 1.8rem;
+  }
+  .text-info {
+    font-size: 1.4rem;
+  }
+  label {
+    font-size: 1.4rem;
+  }
+  .input-container {
+    text-align: center;
+    .flex-container {
+      display: flex;
+      justify-content: center;
+      .input-box {
+        width: 7rem;
+
+        input {
+          font-size: 1.4rem;
+        }
+        span {
+          font-size: 1.4rem;
+          bottom: 12%;
+        }
+      }
+    }
+  }
+  .select-product {
+    font-size: 1.6rem;
+  }
+
+  .container {
+    // desk
+    margin: 2rem;
+  }
+  .process {
+    display: flex;
+    // mobile
+    flex-direction: row;
+    //??
+    padding: 1.5rem;
+    h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      padding-top: 0rem;
+      // desk
+      margin-left: 1rem;
+      align-self: center;
+    }
+  }
+  .circle {
+    width: 2.8rem;
+    height: 2.8rem;
+    span {
+      color: #fff;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+  }
+  .btn-link {
+    font-weight: 600;
+    font-size: 18px;
+  }
+}
+
+// desk
+@media only screen and (min-width: 1024px) {
+  .col {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    .select-product {
+      padding-top: 1.5rem;
+    }
+  }
+
+  .container {
+    // desk
+    padding: 2rem;
+    padding-top: 8rem;
+    margin: 2rem;
+  }
+  .process {
+    padding: 2rem;
+  }
+}
