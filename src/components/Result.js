@@ -3,7 +3,8 @@ import { AppContext } from "../context/states";
 import { BiLinkExternal } from "react-icons/bi";
 
 const Result = () => {
-  const { result, selectedProduct, calculatedArea } = useContext(AppContext);
+  const { result, selectedProduct, calculatedArea, antalLag } =
+    useContext(AppContext);
   const [grunderArea, setGrunderArea] = useState(null);
 
   useEffect(() => {
@@ -54,7 +55,7 @@ const Result = () => {
           {result && <h3>Total areal: {result} ㎡.</h3>}
           <p className="text-info">Mængde information:</p>
           <h3>
-            Baseret på {selectedProduct.fields.lag} lag: {calculatedArea} liter.
+            Baseret på {antalLag} lag: {calculatedArea} liter.
           </h3>
           {selectedProduct.fields.produktNavnGrunder &&
           selectedProduct.fields.lagGrunder &&

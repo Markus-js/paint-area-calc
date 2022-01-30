@@ -2,13 +2,20 @@ import { useEffect, useContext } from "react";
 import { AppContext } from "../context/states";
 
 const InputCalc = () => {
-  const { højde, setHøjde, længde, setLængde, setResult } =
-    useContext(AppContext);
+  const {
+    højde,
+    setHøjde,
+    længde,
+    setLængde,
+    setResult,
+    antalLag,
+    setAntalLag,
+  } = useContext(AppContext);
 
   // Rerender ui when onChange => inputs
   useEffect(() => {
     handleCalc();
-  }, [højde, længde]);
+  }, [højde, længde, antalLag]);
 
   // SET Calc RESULT IN CONTEXT
   const handleCalc = () => {
@@ -24,6 +31,11 @@ const InputCalc = () => {
   function onChangeLængde(e) {
     if (!e.target.validity.patternMismatch) {
       setLængde(e.target.value);
+    }
+  }
+  function onChangeLag(e) {
+    if (!e.target.validity.patternMismatch) {
+      setAntalLag(e.target.value);
     }
   }
 
@@ -61,6 +73,18 @@ const InputCalc = () => {
             />
           </div>
           <span>m</span>
+        </div>
+        <div className="input-box">
+          <div className="input-wrapper">
+            <label htmlFor="højde">Antal lag</label>
+            <input
+              id="højde"
+              value={antalLag || ""}
+              pattern="^[0-9]*$"
+              maxLength="3"
+              onChange={onChangeLag}
+            />
+          </div>
         </div>
       </div>
       <p>Skriv højden og længden på den overflade du ønsker at renovere.</p>

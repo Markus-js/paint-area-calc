@@ -6,6 +6,7 @@ const SelectProduct = () => {
   const {
     items,
     result,
+    antalLag,
     selectedValue,
     setSelectedValue,
     selectedProduct,
@@ -47,10 +48,7 @@ const SelectProduct = () => {
     // Calc ( l * h / sum of dækkeevne * lag )
     if (selectedProduct) {
       setCalculatedArea(
-        (
-          (result / selectedProduct.fields.dkkeevne) *
-          selectedProduct.fields.lag
-        ).toFixed(2)
+        ((result / selectedProduct.fields.dkkeevne) * antalLag).toFixed(2)
         // ((25 / 6.5) * 2).toFixed(2)go
       );
     }

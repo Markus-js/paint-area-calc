@@ -6,6 +6,7 @@ const AppContextProvider = ({ children }) => {
   const [items, setItems] = useState(null);
   const [højde, setHøjde] = useState(null);
   const [længde, setLængde] = useState(null);
+  const [antalLag, setAntalLag] = useState(1);
   const [result, setResult] = useState(null);
 
   const [selectedValue, setSelectedValue] = useState(null);
@@ -32,6 +33,8 @@ const AppContextProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        antalLag,
+        setAntalLag,
         calculatedArea,
         setCalculatedArea,
         selectedProduct,
