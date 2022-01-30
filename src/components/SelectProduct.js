@@ -32,8 +32,6 @@ const SelectProduct = () => {
   // Rerender ui then selecting product
   useEffect(() => {
     handleCalcArea();
-
-    console.log(selectedProduct);
   }, [handleChange]);
 
   // Calculate selectedValue/ProductName
