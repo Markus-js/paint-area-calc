@@ -19,15 +19,17 @@ const InputCalc = () => {
 
   // SET Calc RESULT IN CONTEXT
   const handleCalc = () => {
-    setResult(højde * længde);
+    setResult(længde);
+    // setResult(højde * længde);
   };
 
-  //   Validate input | Only number types
-  function onChangeHøjde(e) {
-    if (!e.target.validity.patternMismatch) {
-      setHøjde(e.target.value);
-    }
-  }
+  //  **  Validate input | Only number types **
+
+  // function onChangeHøjde(e) {
+  //   if (!e.target.validity.patternMismatch) {
+  //     setHøjde(e.target.value);
+  //   }
+  // }
   function onChangeLængde(e) {
     if (!e.target.validity.patternMismatch) {
       setLængde(e.target.value);
@@ -50,7 +52,7 @@ const InputCalc = () => {
       <div className="flex-container">
         <div className="input-box">
           <div className="input-wrapper">
-            <label htmlFor="længde">Længde</label>
+            <label htmlFor="længde">Total areal</label>
             <input
               id="længde"
               value={længde || ""}
@@ -59,9 +61,9 @@ const InputCalc = () => {
               onChange={onChangeLængde}
             />
           </div>
-          <span>m</span>
+          <span>㎡</span>
         </div>
-        <div className="input-box">
+        {/* <div className="input-box">
           <div className="input-wrapper">
             <label htmlFor="højde">Højde</label>
             <input
@@ -73,7 +75,7 @@ const InputCalc = () => {
             />
           </div>
           <span>m</span>
-        </div>
+        </div> */}
         <div className="input-box">
           <div className="input-wrapper">
             <label htmlFor="højde">Antal lag</label>
@@ -87,7 +89,7 @@ const InputCalc = () => {
           </div>
         </div>
       </div>
-      <p>Skriv højden og længden på den overflade du ønsker at renovere.</p>
+      {/* <p>Skriv højden og længden på den overflade du ønsker at renovere.</p> */}
     </div>
   );
 };
